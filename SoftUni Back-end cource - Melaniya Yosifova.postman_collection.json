@@ -1,0 +1,1022 @@
+{
+	"info": {
+		"_postman_id": "70f9e998-9f80-48a2-95ac-8321539fc7b9",
+		"name": "SoftUni Back-end cource - Melaniya Yosifova",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8773029"
+	},
+	"item": [
+		{
+			"name": "Example",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code is 200 and show responce\", function (){\r",
+							"    console.log(\"responce: \", pm.response);\r",
+							"    pm.expect(pm.response.code).equals(200);\r",
+							"});\r",
+							"pm.test(\"Status check\", function(){\r",
+							"    pm.expect(pm.response.status, \"Status property\").equals(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Object exist\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"test-nakov-repo\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"ID is correct\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(73502079).toString();\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Issue is open\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.description).to.eql(\"Testing Reposiory (Test Nakov)\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Issue was created by the correct user\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.owner.login).to.eql(\"testnakov\");\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/repos/testnakov/test-nakov-repo",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"testnakov",
+						"test-nakov-repo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All repos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/users/Melnida/repos",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users",
+						"Melnida",
+						"repos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all commits from a public repository",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"There is no commits yet\", function () {\r",
+							"  pm.response.to.have.status(409);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/repos/Melnida/Postman/commits",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"Melnida",
+						"Postman",
+						"commits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all commits from a public repository Cakov",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/repos/testnakov/softuniada-2016/commits",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"testnakov",
+						"softuniada-2016",
+						"commits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all issues/issue #1 from a public repository",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/repos/testnakov/test-nakov-repo/issues",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"testnakov",
+						"test-nakov-repo",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the first issue from the \"test-nakov-repo\" repository",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/repos/testnakov/test-nakov-repo/issues/1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"testnakov",
+						"test-nakov-repo",
+						"issues",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all labels for certain issue from a public repository",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/repos/Melnida/Postman/issues/1/labels",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"Melnida",
+						"Postman",
+						"issues",
+						"1",
+						"labels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(pm.response.text());\r",
+							"const responseJson = pm.response.json();\r",
+							"pm.test(\"Status code is 200.\", () => {\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restcountries.com/v2/name/Bulgaria/",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"com"
+					],
+					"path": [
+						"v2",
+						"name",
+						"Bulgaria",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test GET Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(pm.response.text());\r",
+							"const responseJson = pm.response.json();\r",
+							"pm.test(\"Status code is 200.\", () => {\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restcountries.com/v2/name/Bulgaria/",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"com"
+					],
+					"path": [
+						"v2",
+						"name",
+						"Bulgaria",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(pm.response.text());\r",
+							"const responseJson = pm.response.json();\r",
+							"pm.test(\"Status code is 200.\", () => {\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restcountries.com/v3.1/lang/german",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"com"
+					],
+					"path": [
+						"v3.1",
+						"lang",
+						"german"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New GET Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(pm.response.text());\r",
+							"const responseJson = pm.response.json();\r",
+							"pm.test(\"Status code is 200.\", () => {\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restcountries.com/v3.1/region/europe",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"com"
+					],
+					"path": [
+						"v3.1",
+						"region",
+						"europe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New GET Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status code is 200.\", () => {\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://github.com/Melnida/Postman/issues",
+					"protocol": "https",
+					"host": [
+						"github",
+						"com"
+					],
+					"path": [
+						"Melnida",
+						"Postman",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New GET Copy 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status code is 200.\", () => {\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://github.com/Melnida/Postman/issues/1",
+					"protocol": "https",
+					"host": [
+						"github",
+						"com"
+					],
+					"path": [
+						"Melnida",
+						"Postman",
+						"issues",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://docs.github.com/rest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status code is 200.\", () => {\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Melnida",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://docs.github.com/rest",
+					"protocol": "https",
+					"host": [
+						"docs",
+						"github",
+						"com"
+					],
+					"path": [
+						"rest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://chaijs.com/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"HTTP status code\", function() {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Melnida",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://chaijs.com/",
+					"protocol": "https",
+					"host": [
+						"chaijs",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test POST Example",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", () => {\r",
+							"  pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+							"});\r",
+							"pm.test(\"Status code is 200 and show responce\", function (){\r",
+							"    console.log(\"responce: \", pm.response);\r",
+							"    pm.expect(pm.response.code).equals(201);\r",
+							"});\r",
+							"pm.test(\"Status check\", function(){\r",
+							"    pm.expect(pm.response.status, \"Status property\").equals(\"Created\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"ID is correct\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.user.id).to.eql(46921089).toString();\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Issue is open\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.body).to.eql(null);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Issue was created by the correct user\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.user.login).to.eql(\"Melnida\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Issue number is correct\", () => {\r",
+							"    let body = pm.response.json();\r",
+							"    pm.expect(body.number).greaterThan(59);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Issue number is correct\", () => {\r",
+							"    const text = pm.response.json();\r",
+							"    pm.expect(text.user.node_id).equals(\"MDQ6VXNlcjQ2OTIxMDg5\").toString();\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Melnida",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Found a bug\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.github.com/repos/Melnida/Postman/issues",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"Melnida",
+						"Postman",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new issue to certain repository (with authentication) more data",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", () => {\r",
+							"  pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Melnida",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"title\":\"Found a bug1\",\r\n \"body\": \"I'm having a problem with this.\",\r\n\"labels\": [\"good first issue\", \"mylabel\", \"critical\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.github.com/repos/Melnida/Postman/issues",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"Melnida",
+						"Postman",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new issue to certain repository (with authentication) + milestones",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", () => {\r",
+							"  pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Melnida",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Found a bug\",\r\n    \"body\":\"I'm having a problem with this.\",\r\n    \"assignees\":[\"Melnida\"],\r\n    \"milestone\":1,\r\n    \"labels\":[\"bug\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.github.com/repos/Melnida/Postman/issues",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"Melnida",
+						"Postman",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test PATCH - UPDATE Example",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code is 200 and show responce\", function (){\r",
+							"    console.log(\"responce: \", pm.response);\r",
+							"    pm.expect(pm.response.code).equals(200);\r",
+							"});\r",
+							"pm.test(\"Status check\", function(){\r",
+							"    pm.expect(pm.response.status, \"Status property\").equals(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"ID is correct\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.number).to.eql(69).toString();\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Issue was created by the correct user\", () => {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.user.login).to.eql(\"Melnida\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Issue number is correct\", () => {\r",
+							"    let body = pm.response.json();\r",
+							"    pm.expect(body.state).equal(\"open\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Issue number is correct\", () => {\r",
+							"    const text = pm.response.json();\r",
+							"    pm.expect(text.user.node_id).equals(\"MDQ6VXNlcjQ2OTIxMDg5\").toString();\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Title is correct\", () => {\r",
+							"    let body = pm.response.json();\r",
+							"    pm.expect(body.title).equal(\"New title\");\r",
+							"})\r",
+							"pm.test(\"Body is correct\", () => {\r",
+							"    let body = pm.response.json();\r",
+							"    pm.expect(body.body).equal(\"New body\");\r",
+							"})\r",
+							"pm.test(\"Assignees is correct\", () => {\r",
+							"    let body = pm.response.json();\r",
+							"    pm.expect(body.assignee.login).equals(\"Melnida\");\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Melnida",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"New title\",\r\n    \"body\":\"New body\",\r\n    \"assignees\":[\"Melnida\"],\r\n    \"labels\":[\"bug\", \"new label\"]\r\n}"
+				},
+				"url": {
+					"raw": "https://api.github.com/repos/Melnida/Postman/issues/69",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"Melnida",
+						"Postman",
+						"issues",
+						"69"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test DELETE Example",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"pm.test(\"Status code is 204 and show responce\", function (){\r",
+							"    console.log(\"responce: \", pm.response);\r",
+							"    pm.expect(pm.response.code).equals(204);\r",
+							"});\r",
+							"pm.test(\"Status check\", function(){\r",
+							"    pm.expect(pm.response.status, \"Status property\").equals(\"No Content\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Melnida",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.github.com/repos/Melnida/Postman/issues/70/lock",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"Melnida",
+						"Postman",
+						"issues",
+						"70",
+						"lock"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
